@@ -1,11 +1,11 @@
 @font-face {
   font-family: Belarus;
-  src: url('./assets/fonts/belarus.otf') format('opentype');
+  src: url('/assets/fonts/belarus.otf') format('opentype');
   font-display: swap;
 }
 @font-face {
   font-family: Montserrat;
-  src: url('./assets/fonts/montserrat-regular.ttf') format('truetype');
+  src: url('/assets/fonts/montserrat-regular.ttf') format('truetype');
   font-display: swap;
 }
 * {
