@@ -1,0 +1,36 @@
+.contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-weight: var(--weight-body-strong);
+  letter-spacing: 0.01em;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition:
+    background var(--dur-base) var(--ease-soft),
+    border-color var(--dur-base) var(--ease-soft),
+    transform var(--dur-fast) var(--ease-soft),
+    opacity var(--dur-base) var(--ease-soft);
+  width: auto;
+  opacity: 1;
+  transform: none;
+  -webkit-tap-highlight-color: transparent;
+  height: var(--control-h-lg);
+  padding: 0 28px;
+  font-size: var(--text-lead);
+  background: var(--olive);
+  color: var(--milk);
+  border: 1.5px solid var(--olive);
+  text-align: center;
+  line-height: normal;
+}
+.contact-button:hover {
+  background: var(--olive-deep);
+  border-color: var(--olive-deep);
+  color: var(--milk);
+}
+.contact-button:active {
+  transform: scale(var(--press-scale));
+}

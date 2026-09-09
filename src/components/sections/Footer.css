@@ -1,0 +1,47 @@
+.footer__section {
+  order: 10;
+  padding: clamp(48px, 7vw, 90px) clamp(16px, 4vw, 56px) 36px;
+  background: var(--milk);
+}
+
+.footer__container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.footer__columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 30px;
+  margin-top: 44px;
+}
+
+.footer__navigation {
+  display: grid;
+  gap: 10px;
+  font-size: 15px;
+  align-content: start;
+}
+
+.footer__social-links {
+  display: grid;
+  gap: 10px;
+  font-size: 15px;
+  align-content: start;
+}
+
+.footer__description {
+  margin: 0;
+  max-width: 270px;
+  font-family: var(--font-utility);
+  font-size: 14px;
+  color: var(--soft-black-70);
+}
+
+.footer__signature {
+  margin: 44px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}

@@ -1,0 +1,46 @@
+.worn__section {
+  order: 7;
+  padding: clamp(40px, 6vw, 80px) 0 clamp(56px, 9vw, 110px);
+  background: var(--milk-deep);
+}
+
+.worn__container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 56px);
+}
+
+.worn__heading {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.04;
+  margin: 0 0 8px;
+}
+
+.worn__description {
+  margin: 0;
+  font-size: 15px;
+  color: var(--soft-black-70);
+}
+
+.worn__scroll {
+  margin-top: 26px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 14px clamp(16px, 4vw, 56px) 20px;
+}
+
+.worn__track {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  width: max-content;
+}
+
+.worn__photo {
+  margin: 0;
+  flex: 0 0 auto;
+  border-radius: var(--radius-lg);
+  filter: saturate(1.02) contrast(1.02);
+  will-change: transform;
+}

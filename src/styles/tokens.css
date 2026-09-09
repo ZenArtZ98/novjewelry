@@ -1,0 +1,168 @@
+/* NOVʹ webfonts. Files supplied by the brand: Belarus (display), Montserrat (body), Roboto Serif variable (utility). */
+@font-face {
+  font-family: 'Belarus';
+  src: url('/assets/fonts/belarus.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/assets/fonts/montserrat-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto Serif';
+  src: url('/assets/fonts/roboto-serif-variable.ttf')
+    format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto Serif';
+  src: url('/assets/fonts/roboto-serif-italic-variable.ttf')
+    format('truetype-variations');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* ---- Base: молоко / мягкий чёрный ---- */
+  --milk: #fff9f1;
+  --milk-warm: #fff7ec; /* the brandbook's paper tone, used for strokes and large fills */
+  --milk-deep: #f6eee3;
+  --soft-black: #1f1f1f;
+  --soft-black-70: rgba(31, 31, 31, 0.7);
+  --soft-black-45: rgba(31, 31, 31, 0.45);
+  --soft-black-12: rgba(31, 31, 31, 0.12);
+
+  /* ---- Природность (nature) ---- */
+  --olive: #777c3c; /* Мох, оливковый — main brand accent */
+  --olive-deep: #5c602d; /* pressed / text-on-milk */
+  --olive-mid: #8b8a35; /* the brandbook's second olive, for large fills */
+  --olive-tint: #e4e6d4; /* wash */
+  --ochre: #ffc132; /* Охристое солнце — thin accent, full-palette only */
+  --ochre-tint: #ffefcb;
+
+  /* ---- Пластиковость (plastic) ---- */
+  --sky: #adecf2; /* Пластиковое небо, голубой — main accent */
+  --sky-deep: #6fccd6;
+  --sky-tint: #e3f8fa;
+  --berry: #c75267; /* Ягода — thin accent (palette page captions it #C9545A) */
+  --berry-deep: #a8434a;
+  --berry-tint: #f5dbdc;
+  --memory: #f5afaf; /* Нежная память, нежно-розовый — thin accent */
+  --memory-tint: #fcedee;
+
+  /* ---- Semantic surfaces ---- */
+  --surface-page: var(--milk);
+  --surface-card: #ffffff;
+  --surface-raised: var(--milk);
+  --surface-sunken: var(--milk-deep);
+  --surface-inverse: var(--soft-black);
+  --surface-accent: var(--olive);
+  --surface-accent-soft: var(--olive-tint);
+  --surface-plastic: var(--sky);
+  --surface-plastic-soft: var(--sky-tint);
+
+  /* ---- Semantic text ---- */
+  --text-body: var(--soft-black);
+  --text-muted: var(--soft-black-70);
+  --text-faint: var(--soft-black-45);
+  --text-inverse: var(--milk);
+  --text-on-photo: var(--milk);
+  --text-accent: var(--olive);
+  --text-price: var(--soft-black);
+  --text-sale: var(--berry);
+
+  /* ---- Lines & focus ---- */
+  --line: var(--soft-black-12);
+  --line-strong: rgba(31, 31, 31, 0.3);
+  --line-accent: var(--olive);
+  --focus-ring: var(--sky-deep);
+
+  /* ---- Status (kept inside the brand palette) ---- */
+  --status-ok: var(--olive);
+  --status-warn: var(--ochre);
+  --status-error: var(--berry);
+  --status-info: var(--sky-deep);
+}
+
+:root {
+  /* 4px base, generous upper end — the brand leans on whitespace */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 144px;
+
+  /* layout */
+  --page-max: 1240px;
+  --page-gutter: 32px;
+  --page-gutter-mobile: 20px;
+  --grid-gap: 24px;
+  --section-gap: var(--space-9);
+
+  /* controls */
+  --control-h-sm: 36px;
+  --control-h-md: 44px;
+  --control-h-lg: 54px;
+  --control-pad-x: 20px;
+
+  /* logo clear space: 1/4 of x, where x = half the logo height */
+  --logo-clearspace: 0.125em; /* @kind other */
+}
+
+:root {
+  /* radii — soft organic, never sharp; pills for controls, generous curves for cards */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-xl: 36px;
+  --radius-pill: 999px;
+  --radius-organic: 56% 44% 60% 40% / 48% 52% 48% 52%; /* @kind other */
+
+  /* borders */
+  --border: 1px solid var(--line);
+  --border-strong: 1px solid var(--line-strong);
+  --border-accent: 1.5px solid var(--olive);
+
+  /* shadows — light and warm, never grey/blue drop shadows */
+  --shadow-none: none;
+  --shadow-card:
+    0 1px 2px rgba(31, 31, 31, 0.04), 0 8px 24px rgba(31, 31, 31, 0.06);
+  --shadow-lift:
+    0 2px 6px rgba(31, 31, 31, 0.06), 0 18px 40px rgba(31, 31, 31, 0.1);
+  --shadow-modal: 0 32px 80px rgba(31, 31, 31, 0.18);
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  --ring-focus: 0 0 0 3px rgba(111, 204, 214, 0.55);
+
+  /* motion — everything slow, soft, no bounce */
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1); /* @kind other */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --dur-fast: 140ms; /* @kind other */
+  --dur-base: 240ms; /* @kind other */
+  --dur-slow: 420ms; /* @kind other */
+  --transition-base: all var(--dur-base) var(--ease-soft); /* @kind other */
+
+  /* interaction */
+  --press-scale: 0.985; /* @kind other */
+  --hover-lift: -2px; /* @kind other */
+
+  /* imagery treatment — photography, textures, scrims and shape masks live in media.css */
+  --img-radius: var(--radius-lg);
+  --img-filter-warm: saturate(1.02) contrast(1.02); /* @kind other */
+  --blur-veil: blur(14px); /* @kind other */
+  --veil-milk: rgba(255, 249, 241, 0.72);
+  --veil-black: rgba(31, 31, 31, 0.55);
+}

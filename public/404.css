@@ -1,0 +1,75 @@
+@font-face {
+  font-family: Belarus;
+  src: url('./assets/fonts/belarus.otf') format('opentype');
+  font-display: swap;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url('./assets/fonts/montserrat-regular.ttf') format('truetype');
+  font-display: swap;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #fff9f1;
+  color: #1f1f1f;
+  font-family: Montserrat, Arial, sans-serif;
+}
+main {
+  min-height: 100svh;
+  max-width: 780px;
+  margin: auto;
+  padding: 80px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.brand {
+  position: absolute;
+  top: 24px;
+  left: 32px;
+  color: #777c3c;
+  font:
+    32px Belarus,
+    Georgia,
+    serif;
+  text-decoration: none;
+}
+.code {
+  margin: 20px 0 0;
+  font:
+    clamp(70px, 15vw, 120px)/1 Belarus,
+    Georgia,
+    serif;
+  color: #777c3c;
+}
+h1 {
+  margin: 18px 0;
+  font:
+    clamp(30px, 6vw, 48px)/1.12 Belarus,
+    Georgia,
+    serif;
+}
+p {
+  max-width: 44ch;
+  line-height: 1.6;
+}
+.home {
+  margin-top: 20px;
+  padding: 16px 28px;
+  color: #fff9f1;
+  background: #777c3c;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.home:hover {
+  background: #5c602d;
+}
+a:focus-visible {
+  outline: 3px solid #6fccd6;
+  outline-offset: 4px;
+}
