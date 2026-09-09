@@ -57,6 +57,20 @@ html = html
   )
   .replace('</head>', `${tags.join('\n')}\n</head>`);
 await fs.writeFile(path.join(output, 'index.html'), html);
+// GitHub Pages project sites serve 404.html from the requested nested path.
+// Prefix its links with Vite's base so assets and home navigation resolve there.
+const base = (process.env.VITE_BASE || '/').replace(/\/?$/, '/');
+for (const file of ['404.html', '404.css']) {
+  const filePath = path.join(output, file);
+  let content = await fs.readFile(filePath, 'utf8');
+  content = content
+    .replaceAll('href="/favicon.svg"', `href="${base}favicon.svg"`)
+    .replaceAll('src="/favicon.svg"', `src="${base}favicon.svg"`)
+    .replaceAll('href="/404.css"', `href="${base}404.css"`)
+    .replaceAll('href="/"', `href="${base}"`)
+    .replaceAll("url('/assets/", `url('${base}assets/`);
+  await fs.writeFile(filePath, content);
+}
 await fs.writeFile(path.join(output, 'robots.txt'), robots(config));
 const xml = sitemap(config);
 if (xml) await fs.writeFile(path.join(output, 'sitemap.xml'), xml);

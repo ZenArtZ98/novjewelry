@@ -29,8 +29,8 @@ jobs:
         run: npm ci
       - name: Build release
         env:
-          VITE_BASE: /
-          SITE_URL: https://novjewelry.ru
+          VITE_BASE: /novjewelry/
+          SITE_URL: https://zenartz98.github.io/novjewelry
         run: npm run build:release
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
