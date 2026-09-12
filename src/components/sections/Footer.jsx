@@ -61,7 +61,13 @@ export function Footer() {
         </aside>
         <div className="footer__credits">
           <div className="footer__designer">
-            <span className="footer__designer-logo">
+            <a
+              className="footer__designer-logo"
+              href="https://vk.ru/kostryprod"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Сообщество КОСТРЫ.prod во ВКонтакте"
+            >
               <img
                 src={asset('assets/logos/kostry-production.png')}
                 alt="КОСТРЫ продакшн"
@@ -70,7 +76,7 @@ export function Footer() {
                 loading="lazy"
                 decoding="async"
               />
-            </span>
+            </a>
             <span>designed by КОСТРЫ.prod</span>
           </div>
           <p className="footer__developer">created by BACKUP.ZenArtZ</p>
