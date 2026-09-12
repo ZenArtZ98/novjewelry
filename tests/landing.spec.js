@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 import fs from 'node:fs';
 
-const originalLayouts = JSON.parse(
+const approvedLayouts = JSON.parse(
   fs.readFileSync(
-    new URL('./fixtures/original-layouts.json', import.meta.url),
+    new URL('./fixtures/approved-layouts.json', import.meta.url),
     'utf8',
   ),
 );
@@ -42,7 +42,8 @@ test('filters every category and restores all eleven products', async ({
     ['цветок', 4],
     ['птица', 2],
     ['конёк', 2],
-    ['кокошник', 2],
+    ['кокошник', 1],
+    ['матрёшка', 1],
     ['краса', 1],
     ['всё', 11],
   ]) {
@@ -74,6 +75,33 @@ test('product dialog supports details, focus trapping, Escape and focus restorat
   await expect(dialog).toHaveCount(0);
   await expect(product).toBeFocused();
   expect(await page.evaluate(() => document.body.style.overflow)).toBe('');
+});
+
+test('kokoshnik and matryoshka are separate earrings and Krasa keeps its cable', async ({
+  page,
+}) => {
+  await page.goto('/');
+  const catalog = page.locator('#catalog');
+  for (const [filter, id, title] of [
+    ['кокошник', 'kks-red', 'Серьги «Кокошник» малиновые'],
+    ['матрёшка', 'mtr-red', 'Серьги «Матрёшка» малиновые'],
+  ]) {
+    await catalog.getByRole('button', { name: filter, exact: true }).click();
+    await expect(catalog.locator('article')).toHaveCount(1);
+    await page.locator(`#card-${id} button`).click();
+    const dialog = page.getByRole('dialog');
+    await expect(dialog.getByRole('heading')).toHaveText(title);
+    await expect(dialog.locator('.productmodal__kind')).toHaveText('СЕРЬГИ');
+    await expect(dialog.locator('dl')).toContainText('Швензы');
+    await expect(dialog.locator('dl')).toContainText('нержавеющая сталь');
+    await expect(dialog).not.toContainText('карабин');
+    await page.keyboard.press('Escape');
+  }
+  await catalog.getByRole('button', { name: 'краса', exact: true }).click();
+  await page.locator('#card-krs-mnt button').click();
+  await expect(page.getByRole('dialog').locator('dl')).toContainText(
+    'стальной в бирюзовой оплётке',
+  );
 });
 
 test('hero cards open the matching product and the close button works', async ({
@@ -118,6 +146,21 @@ test('material swatches and FAQ change content', async ({ page }) => {
   );
   await question.click();
   await expect(question).toHaveAttribute('aria-expanded', 'false');
+  await page
+    .getByRole('button', { name: 'Можно ли свой дизайн?', exact: true })
+    .click();
+  await expect(page.locator('.faq__answer')).toContainText(
+    'подберём форму и цвет',
+  );
+  await page
+    .getByRole('button', {
+      name: 'Можно ли сдать ваше изделие на переработку?',
+      exact: true,
+    })
+    .click();
+  await expect(page.locator('.faq__answer')).toContainText(
+    'снова сделаем из него украшение',
+  );
 });
 
 test('photo ribbon scrolls horizontally and changes its perspective', async ({
@@ -134,7 +177,7 @@ test('photo ribbon scrolls horizontally and changes its perspective', async ({
   await expect(page.locator('[data-worn]').first()).toHaveCSS('opacity', '0.7');
 });
 
-for (const { width, height, sections } of originalLayouts) {
+for (const { width, height, sections } of approvedLayouts) {
   test(`layout and catalog remain usable at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height });
     await page.goto('/');

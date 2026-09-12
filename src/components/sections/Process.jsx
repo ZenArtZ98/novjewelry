@@ -10,11 +10,10 @@ export function Process({ steps }) {
       <div className="process__container">
         <div className="process__heading-row" data-reveal="1">
           <h2 className="process__heading">
-            От мытой крышки до <em className="process__accent">фрезы</em>
+            От мытой бутылки до <em className="process__accent">фрезы</em>
           </h2>
           <p className="process__description">
-            Весь путь проходит в одной мастерской. Ничего не отдаётся на
-            сторону.
+            Весь путь проходит в одной мастерской.
           </p>
         </div>
         <div className="process__grid">

@@ -30,8 +30,8 @@ export function Contact({ floats }) {
           <em className="contact__accent">Носите его дальше.</em>
         </h2>
         <p className="contact__description">
-          Хотите другое слово на брелоке или свой цвет — напишите в сообщения
-          сообщества, подберём из текущей партии.
+          Хотите украшение по своему дизайну — напишите в сообщения сообщества.
+          Покажем, какой пластик есть сейчас, и вместе подберём форму и цвет.
         </p>
         <div className="contact__actions">
           <Button variant="primary" size="lg">

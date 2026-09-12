@@ -54,6 +54,7 @@ function getLandingValues(state, setState, jump, herbariumTilt) {
     { name: 'птица', shape: 'bird', dot: 'var(--memory)' },
     { name: 'конёк', shape: 'horse', dot: 'var(--sky)' },
     { name: 'кокошник', shape: 'flower-alt', dot: 'var(--berry)' },
+    { name: 'матрёшка', shape: 'matryoshka', dot: 'var(--berry)' },
     { name: 'краса', shape: 'flower-logo', dot: 'var(--olive)' },
   ];
 

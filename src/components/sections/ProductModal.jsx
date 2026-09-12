@@ -64,7 +64,8 @@ export function ProductModal({ hasOpen, op, closeModal }) {
             </ul>
             <p className="productmodal__care">
               Уход: тёплая вода и мягкая тряпка. Сборка заказа 1–2 дня,
-              приезжает в льняном мешочке и крафтовой коробке. Артикул {op.sku}.
+              приезжает в льняном мешочке 9 × 12 см с зелёной лентой и логотипом
+              НОВЬ. Артикул {op.sku}.
             </p>
             <div className="productmodal__actions">
               <Button variant="primary" size="lg">
