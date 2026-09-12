@@ -45,3 +45,143 @@
   text-transform: uppercase;
   color: var(--text-faint);
 }
+
+.footer__support {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  align-items: center;
+  gap: 30px;
+  margin-top: 34px;
+  padding: 18px 0;
+}
+
+.footer__support::before,
+.footer__support::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: calc(100vw - 56px);
+  height: 1px;
+  background: var(--olive-deep);
+  transform: translateX(-50%);
+}
+
+.footer__support::before {
+  top: 0;
+}
+
+.footer__support::after {
+  bottom: 0;
+}
+
+.footer__support-logos {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+}
+
+.footer__fund-logo,
+.footer__platform-logo {
+  display: block;
+  flex: none;
+  object-fit: contain;
+}
+
+.footer__support-text {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.footer__credits {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding-top: 24px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.footer__designer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer__designer-logo {
+  position: relative;
+  display: block;
+  flex: none;
+  width: 176px;
+  height: 42px;
+  overflow: hidden;
+}
+
+.footer__designer-logo img {
+  /* The supplied artwork has transparent space above and below the mark. */
+  position: absolute;
+  width: 180px;
+  height: 90px;
+  max-width: none;
+  left: -2px;
+  top: -26px;
+}
+
+.footer__developer {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .footer__support {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding-block: 20px;
+  }
+
+  .footer__support-logos {
+    gap: 32px;
+  }
+
+  .footer__support-logos img {
+    max-width: calc(50% - 16px);
+  }
+
+  .footer__fund-logo {
+    width: 144px;
+    height: 70px;
+  }
+
+  .footer__platform-logo {
+    width: 108px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer__section {
+    padding-inline: 44px 28px;
+  }
+
+  .footer__support::before,
+  .footer__support::after {
+    left: -16px;
+    width: calc(100% + 16px);
+    transform: none;
+  }
+
+  .footer__credits {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .footer__designer {
+    flex-wrap: wrap;
+    column-gap: 16px;
+    row-gap: 8px;
+  }
+}
