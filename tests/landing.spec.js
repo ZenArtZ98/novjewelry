@@ -177,6 +177,43 @@ test('photo ribbon scrolls horizontally and changes its perspective', async ({
   await expect(page.locator('[data-worn]').first()).toHaveCSS('opacity', '0.7');
 });
 
+test.describe('mobile navigation', () => {
+  test.use({
+    viewport: { width: 390, height: 844 },
+    isMobile: true,
+    hasTouch: true,
+  });
+
+  test('menu supports section links, dismissal and switching to desktop', async ({
+    page,
+  }) => {
+    await page.goto('/');
+    const toggle = page.locator('.header__menu-toggle');
+    const nav = page.getByRole('navigation', { name: 'Основная навигация' });
+    await expect(nav).toBeHidden();
+    await toggle.tap();
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    await expect(nav.getByRole('link')).toHaveCount(5);
+    await nav.getByRole('link', { name: 'Материал', exact: true }).tap();
+    await expect(nav).toBeHidden();
+    await expect(page.locator('.material__heading')).toBeInViewport();
+    await toggle.tap();
+    await page.touchscreen.tap(20, 800);
+    await expect(nav).toBeHidden();
+    await toggle.tap();
+    await page.keyboard.press('Escape');
+    await expect(nav).toBeHidden();
+    await expect(toggle).toBeFocused();
+    await toggle.tap();
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await expect(toggle).toBeHidden();
+    await expect(nav).toBeVisible();
+    await page.setViewportSize({ width: 390, height: 844 });
+    await expect(nav).toBeHidden();
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+  });
+});
+
 for (const { width, height, sections } of approvedLayouts) {
   test(`layout and catalog remain usable at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height });
@@ -185,6 +222,31 @@ for (const { width, height, sections } of approvedLayouts) {
     expect(
       await page.evaluate(() => document.documentElement.scrollWidth),
     ).toBe(width);
+    if (width <= 760) {
+      for (const selector of [
+        '.pageeffects__progress',
+        '.pageeffects__cursor',
+        '.pageeffects__seeds',
+      ]) {
+        await expect(page.locator(selector)).toBeHidden();
+      }
+      const bounds = await page.evaluate(() =>
+        [
+          '.material__heading',
+          '.material__description',
+          '.material__sample',
+          '.material__label',
+          '.material__swatches',
+          '.material__note',
+        ].map((selector) => {
+          const rect = document.querySelector(selector).getBoundingClientRect();
+          return { top: rect.top, bottom: rect.bottom };
+        }),
+      );
+      for (let i = 1; i < bounds.length; i++) {
+        expect(bounds[i].top).toBeGreaterThanOrEqual(bounds[i - 1].bottom);
+      }
+    }
     const current = await page.locator('section').evaluateAll((elements) =>
       elements.map((el) => {
         const bounds = el.getBoundingClientRect();

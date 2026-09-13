@@ -51,3 +51,16 @@
   background: var(--olive);
   border-radius: 2px;
 }
+
+@media (max-width: 760px) {
+  .pageeffects__progress,
+  .pageeffects__cursor,
+  .pageeffects__seeds {
+    display: none;
+  }
+
+  html[data-js='true'] #nv-page,
+  html[data-js='true'] #nv-page * {
+    cursor: auto !important;
+  }
+}

@@ -22,7 +22,7 @@ export function Material({ cutShape, cutImg, cuts, cutNote }) {
             aria-hidden="true"
           ></span>
         </div>
-        <div data-reveal="1">
+        <div className="material__content" data-reveal="1">
           <h2 className="material__heading">
             Пластик, в котором <em className="material__accent">видно</em>, чем
             он был
@@ -33,30 +33,32 @@ export function Material({ cutShape, cutImg, cuts, cutNote }) {
             разводы, вкрапления и крошка исходного сырья. Это и есть рисунок
             изделия — повторить его невозможно.
           </p>
-          <p className="nv-label material__label">СРЕЗ ПАРТИИ</p>
-          <div className="material__swatches">
-            {cuts.map((c) => (
-              <Fragment key={c.name}>
-                <button
-                  style={{
-                    background: c.bg,
-                    color: c.fg,
-                    border: `1.5px solid ${c.bd}`,
-                  }}
-                  className="material__swatch"
-                  type="button"
-                  onClick={c.pick}
-                  onMouseEnter={c.pick}
-                >
-                  <span
-                    style={{ background: c.dot }}
-                    className="material__swatch-color"
-                    aria-hidden="true"
-                  ></span>
-                  {c.name}
-                </button>
-              </Fragment>
-            ))}
+          <div className="material__selection">
+            <p className="nv-label material__label">СРЕЗ ПАРТИИ</p>
+            <div className="material__swatches">
+              {cuts.map((c) => (
+                <Fragment key={c.name}>
+                  <button
+                    style={{
+                      background: c.bg,
+                      color: c.fg,
+                      border: `1.5px solid ${c.bd}`,
+                    }}
+                    className="material__swatch"
+                    type="button"
+                    onClick={c.pick}
+                    onMouseEnter={c.pick}
+                  >
+                    <span
+                      style={{ background: c.dot }}
+                      className="material__swatch-color"
+                      aria-hidden="true"
+                    ></span>
+                    {c.name}
+                  </button>
+                </Fragment>
+              ))}
+            </div>
           </div>
           <p className="material__note">{cutNote}</p>
         </div>

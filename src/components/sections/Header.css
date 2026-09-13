@@ -166,3 +166,114 @@
     0 0 10px rgba(255, 249, 241, 0.5),
     0 0 24px rgba(255, 249, 241, 0.28);
 }
+
+.header__menu-toggle {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .header__bar {
+    padding: 10px 24px !important;
+    min-height: 64px;
+    background: rgba(255, 249, 241, 0.96) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid var(--line) !important;
+  }
+
+  .header__fog,
+  .header__fog-sky,
+  .header__fog-berry,
+  .header__bottom-line,
+  .header__bottom-glow,
+  .header__top-line {
+    display: none;
+  }
+
+  .header__home {
+    filter: none !important;
+  }
+
+  .header__home svg path:not(:last-child) {
+    fill: var(--olive);
+  }
+
+  .header__menu-toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--olive);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--olive-deep);
+    cursor: pointer;
+  }
+
+  .header__menu-toggle span {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: currentColor;
+    transition:
+      transform 180ms ease,
+      opacity 180ms ease;
+  }
+
+  .header__menu-toggle[aria-expanded='true'] span:first-child {
+    transform: translateY(7.5px) rotate(45deg);
+  }
+
+  .header__menu-toggle[aria-expanded='true'] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header__menu-toggle[aria-expanded='true'] span:last-child {
+    transform: translateY(-7.5px) rotate(-45deg);
+  }
+
+  .header__navigation {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 12px 24px 24px !important;
+    background: var(--milk) !important;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    box-shadow: 0 14px 20px rgba(31, 31, 31, 0.06);
+    gap: 0;
+    max-height: calc(100dvh - 64px);
+    overflow-y: auto;
+    font-family: var(--font-display);
+    font-size: 30px;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .header__bar[data-menu-open='true'] .header__navigation {
+    display: grid;
+  }
+
+  .header__bar[data-menu-open='true'] {
+    background: var(--milk) !important;
+  }
+
+  .header__link {
+    display: block;
+    padding: 12px 0;
+    color: var(--olive-deep) !important;
+    text-shadow: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .header__link:last-child {
+    border-bottom: 0;
+    color: var(--berry-deep) !important;
+  }
+}
