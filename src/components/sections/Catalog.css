@@ -175,7 +175,45 @@
 }
 
 @media (max-width: 760px) {
+  .catalog__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 14px;
+  }
+
   .catalog__card {
     transform: none;
+  }
+
+  .catalog__card-button {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .catalog__title {
+    order: 1;
+  }
+
+  .catalog__meta {
+    display: contents;
+  }
+
+  .catalog__price {
+    order: 2;
+    margin-top: 6px;
+  }
+
+  .catalog__note {
+    order: 3;
+  }
+
+  .catalog__sku {
+    order: 4;
+    margin-top: 6px;
+    text-align: left;
+  }
+
+  .catalog__image-frame {
+    aspect-ratio: 1 / 1 !important;
   }
 }
