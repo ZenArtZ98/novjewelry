@@ -57,7 +57,8 @@ export function Catalog({ count, filters, items }) {
             <Fragment key={p.id}>
               <article
                 style={{
-                  transform: `translateY(${p.offset}) rotate(${p.tilt})`,
+                  '--card-offset': p.offset,
+                  '--card-tilt': p.tilt,
                 }}
                 className={`catalog__card`}
                 id={p.cardId}

@@ -86,6 +86,7 @@
 }
 
 .catalog__card {
+  transform: translateY(var(--card-offset)) rotate(var(--card-tilt));
   transition: transform 300ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
@@ -170,4 +171,10 @@
   font-family: var(--font-utility);
   font-size: 13px;
   color: var(--soft-black-70);
+}
+
+@media (max-width: 760px) {
+  .catalog__card {
+    transform: none;
+  }
 }

@@ -177,11 +177,55 @@ test('photo ribbon scrolls horizontally and changes its perspective', async ({
   await expect(page.locator('[data-worn]').first()).toHaveCSS('opacity', '0.7');
 });
 
-test.describe('mobile navigation', () => {
+test.describe('mobile layout and navigation', () => {
   test.use({
     viewport: { width: 390, height: 844 },
     isMobile: true,
     hasTouch: true,
+  });
+
+  test('catalog cards stay separated in every category on narrow screens', async ({
+    page,
+  }) => {
+    await page.goto('/');
+    await page.evaluate(() => document.fonts.ready);
+    const catalog = page.locator('#catalog');
+    for (const width of [320, 360, 390, 430, 760]) {
+      await page.setViewportSize({ width, height: 844 });
+      for (const name of [
+        'всё',
+        'цветок',
+        'птица',
+        'конёк',
+        'кокошник',
+        'матрёшка',
+        'краса',
+      ]) {
+        await catalog.getByRole('button', { name, exact: true }).tap();
+        const cards = await catalog.locator('article').evaluateAll((elements) =>
+          elements.map((el) => {
+            const { left, right, top, bottom } = el.getBoundingClientRect();
+            return { left, right, top, bottom };
+          }),
+        );
+        for (let i = 0; i < cards.length; i++) {
+          for (let j = i + 1; j < cards.length; j++) {
+            const a = cards[i];
+            const b = cards[j];
+            const gap = Math.max(
+              b.left - a.right,
+              a.left - b.right,
+              b.top - a.bottom,
+              a.top - b.bottom,
+            );
+            expect(
+              gap,
+              `${width}px, ${name}: cards ${i} and ${j}`,
+            ).toBeGreaterThanOrEqual(16);
+          }
+        }
+      }
+    }
   });
 
   test('menu supports section links, dismissal and switching to desktop', async ({
@@ -227,6 +271,7 @@ for (const { width, height, sections } of approvedLayouts) {
         '.pageeffects__progress',
         '.pageeffects__cursor',
         '.pageeffects__seeds',
+        '.process__side-label',
       ]) {
         await expect(page.locator(selector)).toBeHidden();
       }

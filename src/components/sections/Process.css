@@ -87,3 +87,9 @@
   color: var(--soft-black-70);
   font-size: 15px;
 }
+
+@media (max-width: 760px) {
+  .process__side-label {
+    display: none;
+  }
+}
