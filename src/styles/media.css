@@ -209,3 +209,19 @@
   --texture-grass-size: 520px; /* @kind other */
   --texture-doodles-size: 640px; /* @kind other */
 }
+
+/* Client supplied product silhouettes. */
+.nv-mask-flower-alt {
+  -webkit-mask-image: url('/assets/icons/kokoshnik.svg');
+  mask-image: url('/assets/icons/kokoshnik.svg');
+}
+
+.nv-mask-matryoshka {
+  -webkit-mask-image: url('/assets/icons/matryoshka.svg');
+  mask-image: url('/assets/icons/matryoshka.svg');
+}
+
+.nv-mask-flower-logo {
+  -webkit-mask-image: url('/assets/icons/krasa.svg');
+  mask-image: url('/assets/icons/krasa.svg');
+}
