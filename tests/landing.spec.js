@@ -92,7 +92,7 @@ test('kokoshnik and matryoshka are separate earrings and Krasa keeps its cable',
     const dialog = page.getByRole('dialog');
     await expect(dialog.getByRole('heading')).toHaveText(title);
     await expect(dialog.locator('.productmodal__kind')).toHaveText('СЕРЬГИ');
-    await expect(dialog.locator('dl')).toContainText('Швензы');
+    await expect(dialog.locator('dl')).toContainText('Фурнитура');
     await expect(dialog.locator('dl')).toContainText('нержавеющая сталь');
     await expect(dialog).not.toContainText('карабин');
     await page.keyboard.press('Escape');
@@ -100,7 +100,7 @@ test('kokoshnik and matryoshka are separate earrings and Krasa keeps its cable',
   await catalog.getByRole('button', { name: 'краса', exact: true }).click();
   await page.locator('#card-krs-mnt button').click();
   await expect(page.getByRole('dialog').locator('dl')).toContainText(
-    'стальной в бирюзовой оплётке',
+    'стальной тросик в бирюзовой оплётке',
   );
 });
 
