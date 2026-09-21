@@ -43,7 +43,7 @@ export const HERO_FLOATS = [
     fill: 'var(--sky)',
     size: 'clamp(54px,6.4vw,100px)',
     l: '40%',
-    t: '46%',
+    t: '40%',
     rot: -8,
   },
   {
@@ -58,7 +58,7 @@ export const HERO_FLOATS = [
     shape: 'flower-logo',
     fill: 'var(--ochre)',
     size: 'clamp(34px,3.8vw,60px)',
-    l: '48%',
+    l: '72%',
     t: '36%',
     rot: 10,
   },
