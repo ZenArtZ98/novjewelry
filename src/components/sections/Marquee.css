@@ -1,6 +1,6 @@
 .marquee__section {
   order: 2;
-  background: var(--olive);
+  background: var(--olive-deep);
   color: var(--milk);
   overflow: hidden;
   padding: 9px 0;

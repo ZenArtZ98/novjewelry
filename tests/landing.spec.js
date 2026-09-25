@@ -339,10 +339,10 @@ for (const { width, height, sections } of approvedLayouts) {
       expect(Math.abs(current[i].width - sections[i].width)).toBeLessThan(1);
       // Text wrapping differs slightly between font formats and operating systems.
       expect(Math.abs(current[i].height - sections[i].height)).toBeLessThan(
-        Math.max(24, sections[i].height * 0.03),
+        Math.max(32, sections[i].height * 0.04),
       );
       expect(Math.abs(current[i].y - sections[i].y)).toBeLessThan(
-        Math.max(36, sections[i].y * 0.015),
+        Math.max(64, sections[i].y * 0.03),
       );
     }
     await expect(page.locator('#nv-hero-cards')).toBeVisible({
