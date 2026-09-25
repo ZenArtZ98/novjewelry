@@ -17,10 +17,6 @@ export function Material({ cutShape, cutImg, cuts, cutNote }) {
               className="material__texture"
             ></span>
           </span>
-          <span
-            className="nv-mask nv-mask-flower-logo material__ornament"
-            aria-hidden="true"
-          ></span>
         </div>
         <div className="material__content" data-reveal="1">
           <h2 className="material__heading">

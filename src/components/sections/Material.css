@@ -46,17 +46,6 @@
   filter: saturate(1.02) contrast(1.02);
 }
 
-.material__ornament {
-  position: absolute;
-  right: -6px;
-  bottom: 8px;
-  display: block;
-  width: 64px;
-  height: 64px;
-  background: var(--ochre);
-  animation: nv-drift 18s ease-in-out infinite;
-}
-
 .material__heading {
   font-family: var(--font-display);
   font-size: clamp(30px, 4.6vw, 56px);
