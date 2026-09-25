@@ -55,14 +55,6 @@ export const HERO_FLOATS = [
     rot: 6,
   },
   {
-    shape: 'flower-logo',
-    fill: 'var(--ochre)',
-    size: 'clamp(34px,3.8vw,60px)',
-    l: '72%',
-    t: '36%',
-    rot: 10,
-  },
-  {
     shape: 'bird',
     fill: 'var(--memory)',
     size: 'clamp(38px,4.4vw,68px)',
@@ -119,22 +111,6 @@ export const HERO_FLOATS = [
     rot: 14,
   },
   {
-    shape: 'flower-alt',
-    fill: 'var(--memory)',
-    size: 'clamp(32px,3.4vw,54px)',
-    l: '46%',
-    t: '58%',
-    rot: -8,
-  },
-  {
-    shape: 'flower-logo',
-    fill: 'var(--berry)',
-    size: 'clamp(28px,3vw,46px)',
-    l: '58%',
-    t: '64%',
-    rot: 6,
-  },
-  {
     shape: 'flower',
     fill: 'var(--sky)',
     size: 'clamp(30px,3.2vw,50px)',
@@ -165,14 +141,6 @@ export const HERO_FLOATS = [
     l: '2%',
     t: '95%',
     rot: -16,
-  },
-  {
-    shape: 'flower-alt',
-    fill: 'var(--berry)',
-    size: 'clamp(30px,3.2vw,50px)',
-    l: '38%',
-    t: '66%',
-    rot: -4,
   },
   {
     shape: 'horse',

@@ -3,6 +3,7 @@ export function startCursorTrail({ reducedMotion = false } = {}) {
   const layer = document.getElementById('nv-seeds');
   if (!cursor || !layer) return () => {};
   const colors = ['#ADECF2', '#C75267', '#F5AFAF', '#777C3C', '#FFC132'];
+  const shapes = ['nv-mask-flower', 'nv-mask-bird', 'nv-mask-horse'];
   let last = 0;
   const timers = new Set();
   const move = (e) => {
@@ -13,8 +14,7 @@ export function startCursorTrail({ reducedMotion = false } = {}) {
     last = now;
     const seed = document.createElement('span');
     seed.className =
-      'nv-mask ' +
-      (Math.random() > 0.7 ? 'nv-mask-flower-logo' : 'nv-mask-flower');
+      'nv-mask ' + shapes[Math.floor(Math.random() * shapes.length)];
     const size = 8 + Math.random() * 8;
     seed.style.cssText = `position:absolute;left:${e.clientX + Math.random() * 16 - 8}px;top:${e.clientY + Math.random() * 12 - 4}px;width:${size}px;height:${size}px;background:${colors[Math.floor(Math.random() * colors.length)]};animation:nv-seed 1.1s cubic-bezier(.22,.61,.36,1) forwards`;
     layer.appendChild(seed);
