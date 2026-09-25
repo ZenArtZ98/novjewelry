@@ -202,5 +202,11 @@
   margin-top: 2px;
   font-family: var(--font-utility);
   font-size: 12px;
-  color: var(--olive);
+  color: var(--olive-deep);
+}
+
+@media (max-width: 760px) {
+  .hero__shapes {
+    display: none;
+  }
 }

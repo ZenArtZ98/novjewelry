@@ -13,7 +13,7 @@
 
 .story__label {
   margin: 0 0 26px;
-  color: var(--olive);
+  color: var(--olive-deep);
 }
 
 .story__grid {
@@ -69,7 +69,7 @@
 
 .story__tool-link {
   font: inherit;
-  color: var(--berry);
+  color: var(--berry-deep);
   background: none;
   border: 0;
   padding: 0;
@@ -85,7 +85,7 @@
 
 .story__note-link {
   font: inherit;
-  color: var(--berry);
+  color: var(--berry-deep);
   background: none;
   border: 0;
   padding: 0;

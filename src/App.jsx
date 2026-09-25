@@ -20,6 +20,9 @@ export default function App() {
   useProductDialog(state.open, setState);
   return (
     <main id="nv-page" className="page">
+      <a className="skip-link" href="#catalog">
+        Перейти к каталогу
+      </a>
       <PageEffects />
       <Hero
         heroFloats={values.heroFloats}

@@ -20,9 +20,9 @@
   height: var(--control-h-lg);
   padding: 0 28px;
   font-size: var(--text-lead);
-  background: var(--olive);
+  background: var(--olive-deep);
   color: var(--milk);
-  border: 1.5px solid var(--olive);
+  border: 1.5px solid var(--olive-deep);
   text-align: center;
   line-height: normal;
 }

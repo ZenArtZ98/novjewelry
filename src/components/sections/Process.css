@@ -42,7 +42,7 @@
 
 .process__accent {
   font-style: italic;
-  color: var(--olive);
+  color: var(--olive-deep);
 }
 
 .process__description {

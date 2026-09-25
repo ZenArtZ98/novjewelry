@@ -41,13 +41,18 @@ const tags = [
   `<meta property="og:site_name" content="${escape(config.name)}">`,
   `<meta property="og:title" content="${escape(config.title)}">`,
   `<meta property="og:description" content="${escape(config.description)}">`,
-  `<meta name="twitter:card" content="summary">`,
+  `<meta name="twitter:card" content="summary_large_image">`,
   `<meta name="twitter:title" content="${escape(config.title)}">`,
   `<meta name="twitter:description" content="${escape(config.description)}">`,
 ];
 if (config.origin) {
   tags.push(`<link rel="canonical" href="${config.origin}/">`);
   tags.push(`<meta property="og:url" content="${config.origin}/">`);
+  tags.push(
+    `<meta property="og:image" content="${config.origin}/assets/images/photo-meadow.webp">`,
+    `<meta property="og:image:alt" content="Летнее поле — фон украшений НОВЬ">`,
+    `<meta name="twitter:image" content="${config.origin}/assets/images/photo-meadow.webp">`,
+  );
 }
 html = html
   .replace('<div id="root"></div>', `<div id="root">${markup}</div>`)

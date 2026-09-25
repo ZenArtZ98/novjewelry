@@ -26,6 +26,26 @@ input:focus-visible {
 ::selection {
   background: #adecf2;
 }
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: -80px;
+  left: 16px;
+  padding: 10px 16px;
+  background: var(--milk);
+  color: var(--olive-deep);
+  border: 1px solid var(--olive-deep);
+  border-radius: var(--radius-sm);
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+section[id] {
+  scroll-margin-top: 80px;
+}
 @media (hover: hover) and (pointer: fine) {
   html[data-js='true'] #nv-page,
   html[data-js='true'] #nv-page * {

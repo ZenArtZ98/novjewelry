@@ -10,7 +10,13 @@ export function Worn({ ribbon }) {
         </h2>
         <p className="worn__description">Снято этим летом.</p>
       </div>
-      <div className="worn__scroll" id="nv-worn-scroll">
+      <div
+        className="worn__scroll"
+        id="nv-worn-scroll"
+        role="region"
+        aria-label="Фотолента летней коллекции, прокручивается по горизонтали"
+        tabIndex={0}
+      >
         <div className="worn__track">
           {ribbon.map((r) => (
             <Fragment key={r.bg}>
@@ -18,13 +24,14 @@ export function Worn({ ribbon }) {
                 style={{
                   width: r.w,
                   height: r.h,
-                  background: `url('${r.bg}') center/cover no-repeat`,
                   transform: `rotate(${r.rot})`,
                 }}
                 className="worn__photo"
                 data-worn="1"
                 data-rot={r.rot}
-              ></figure>
+              >
+                <img src={r.bg} alt="" loading="lazy" decoding="async" />
+              </figure>
             </Fragment>
           ))}
         </div>

@@ -111,9 +111,9 @@ function getLandingValues(state, setState, jump, herbariumTilt) {
     cuts: MATERIAL_SAMPLES.map((c, i) => ({
       name: c.name,
       dot: c.dot,
-      bg: s.cut === i ? 'var(--olive)' : 'transparent',
+      bg: s.cut === i ? 'var(--olive-deep)' : 'transparent',
       fg: s.cut === i ? 'var(--milk)' : 'var(--soft-black)',
-      bd: s.cut === i ? 'var(--olive)' : 'rgba(31,31,31,.3)',
+      bd: s.cut === i ? 'var(--olive-deep)' : 'rgba(31,31,31,.3)',
       pick: () => setState({ cut: i }),
     })),
 
@@ -133,8 +133,8 @@ function getLandingValues(state, setState, jump, herbariumTilt) {
         isAll: !f.shape,
         active: active,
         dot: active ? 'var(--milk)' : f.dot,
-        bg: active ? 'var(--olive)' : 'transparent',
-        bd: active ? 'var(--olive)' : 'var(--soft-black-12)',
+        bg: active ? 'var(--olive-deep)' : 'transparent',
+        bd: active ? 'var(--olive-deep)' : 'var(--soft-black-12)',
         fg: active ? 'var(--milk)' : 'var(--soft-black)',
         pick: () => setState({ shape: f.shape }),
       };

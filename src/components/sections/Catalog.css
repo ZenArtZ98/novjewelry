@@ -27,7 +27,7 @@
 
 .catalog__accent {
   font-style: italic;
-  color: var(--olive);
+  color: var(--olive-deep);
 }
 
 .catalog__count {
@@ -178,7 +178,7 @@
   .catalog__grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 28px 14px;
+    gap: 28px 16px;
   }
 
   .catalog__card {

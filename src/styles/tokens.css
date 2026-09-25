@@ -15,16 +15,14 @@
 }
 @font-face {
   font-family: 'Roboto Serif';
-  src: url('/assets/fonts/roboto-serif-variable.ttf')
-    format('truetype-variations');
+  src: url('/assets/fonts/roboto-serif-variable.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Roboto Serif';
-  src: url('/assets/fonts/roboto-serif-italic-variable.ttf')
-    format('truetype-variations');
+  src: url('/assets/fonts/roboto-serif-italic-variable.woff2') format('woff2');
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
@@ -72,10 +70,10 @@
   /* ---- Semantic text ---- */
   --text-body: var(--soft-black);
   --text-muted: var(--soft-black-70);
-  --text-faint: var(--soft-black-45);
+  --text-faint: var(--soft-black-70);
   --text-inverse: var(--milk);
   --text-on-photo: var(--milk);
-  --text-accent: var(--olive);
+  --text-accent: var(--olive-deep);
   --text-price: var(--soft-black);
   --text-sale: var(--berry);
 

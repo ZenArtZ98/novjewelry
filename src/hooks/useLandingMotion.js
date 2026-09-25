@@ -6,6 +6,7 @@ import { startCursorTrail } from '../animations/cursorTrail';
 export function useLandingMotion(setState) {
   useEffect(() => {
     const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const compactScreen = window.matchMedia('(max-width: 760px)');
     let stopEffects = () => {};
     const startEffects = () => {
       stopEffects();
@@ -13,11 +14,13 @@ export function useLandingMotion(setState) {
         startPhotoRibbon({ reducedMotion: preference.matches }),
         startCursorTrail({ reducedMotion: preference.matches }),
       ];
-      if (!preference.matches) stops.push(startFloatingShapes());
+      if (!preference.matches && !compactScreen.matches)
+        stops.push(startFloatingShapes());
       stopEffects = () => stops.forEach((stop) => stop());
     };
     startEffects();
     preference.addEventListener('change', startEffects);
+    compactScreen.addEventListener('change', startEffects);
 
     let lastStuck, lastDark, frame;
     const updateScroll = () => {
@@ -85,6 +88,7 @@ export function useLandingMotion(setState) {
       stopEffects();
       observer.disconnect();
       preference.removeEventListener('change', startEffects);
+      compactScreen.removeEventListener('change', startEffects);
       preference.removeEventListener('change', showReveals);
       window.removeEventListener('scroll', scheduleScroll);
       window.removeEventListener('resize', scheduleScroll);

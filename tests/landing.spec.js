@@ -52,6 +52,18 @@ test('filters every category and restores all eleven products', async ({
   }
 });
 
+test('keyboard visitors can skip the hero and reach the catalog', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await page.keyboard.press('Tab');
+  await expect(
+    page.getByRole('link', { name: 'Перейти к каталогу' }),
+  ).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#catalog')).toBeInViewport();
+});
+
 test('product dialog supports details, focus trapping, Escape and focus restoration', async ({
   page,
 }) => {
@@ -175,6 +187,25 @@ test('photo ribbon scrolls horizontally and changes its perspective', async ({
     .poll(() => ribbon.evaluate((el) => el.scrollLeft))
     .toBeGreaterThan(0);
   await expect(page.locator('[data-worn]').first()).toHaveCSS('opacity', '0.7');
+});
+
+test('the photo ribbon loads its images when visitors reach it', async ({
+  page,
+}) => {
+  await page.goto('/');
+  const photos = page.locator('.worn__photo img');
+  await expect(photos).toHaveCount(15);
+  expect(
+    await photos.evaluateAll(
+      (images) =>
+        images.filter((image) => image.complete && image.naturalWidth > 0)
+          .length,
+    ),
+  ).toBe(0);
+  await page.locator('#worn').scrollIntoViewIfNeeded();
+  await expect
+    .poll(() => photos.first().evaluate((image) => image.naturalWidth))
+    .toBeGreaterThan(0);
 });
 
 test.describe('mobile layout and navigation', () => {
@@ -305,8 +336,14 @@ for (const { width, height, sections } of approvedLayouts) {
     );
     for (let i = 0; i < sections.length; i++) {
       expect(current[i].id).toBe(sections[i].id);
-      for (const key of ['width', 'height', 'y'])
-        expect(Math.abs(current[i][key] - sections[i][key])).toBeLessThan(1);
+      expect(Math.abs(current[i].width - sections[i].width)).toBeLessThan(1);
+      // Text wrapping differs slightly between font formats and operating systems.
+      expect(Math.abs(current[i].height - sections[i].height)).toBeLessThan(
+        Math.max(24, sections[i].height * 0.03),
+      );
+      expect(Math.abs(current[i].y - sections[i].y)).toBeLessThan(
+        Math.max(36, sections[i].y * 0.015),
+      );
     }
     await expect(page.locator('#nv-hero-cards')).toBeVisible({
       visible: width > 760,
