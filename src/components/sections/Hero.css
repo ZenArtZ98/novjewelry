@@ -205,6 +205,17 @@
   color: var(--olive-deep);
 }
 
+@media (min-width: 1041px) {
+  .hero__content {
+    padding-left: clamp(82px, 7.5vw, 144px);
+  }
+
+  .hero__cards {
+    left: calc(max(56%, 580px) + 20px);
+    right: clamp(100px, 8vw, 150px);
+  }
+}
+
 @media (max-width: 760px) {
   .hero__shapes {
     display: none;
